@@ -15,6 +15,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
         modules =  {
                 AndroidSupportInjectionModule.class,
                 ActivityBuildersModule.class,
+                AppModule.class
         }
 )
 public interface AppComponent extends AndroidInjector<BaseApplication> {
@@ -25,6 +26,8 @@ public interface AppComponent extends AndroidInjector<BaseApplication> {
         //Something you can use if you want to bind a particular object or particular instance of an object to the component at the time of its construction
         @BindsInstance
         Builder application(Application application);
+
+        //application will be avaliable for us to use in modules.
 
         AppComponent build();
     }

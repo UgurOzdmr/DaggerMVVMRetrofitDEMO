@@ -7,6 +7,8 @@ import android.app.Fragment;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ContentProvider;
+import android.graphics.drawable.Drawable;
+import com.bumptech.glide.RequestManager;
 import com.example.daggermvvmretrofit.AuthActivity;
 import com.example.daggermvvmretrofit.AuthActivity_MembersInjector;
 import com.example.daggermvvmretrofit.BaseApplication;
@@ -21,12 +23,14 @@ import java.util.Map;
 import javax.inject.Provider;
 
 public final class DaggerAppComponent implements AppComponent {
+  private final Application application;
+
   private Provider<ActivityBuildersModule_ContributeAuthActivity.AuthActivitySubcomponent.Factory>
       authActivitySubcomponentFactoryProvider;
 
-  private DaggerAppComponent(Application application) {
-
-    initialize(application);
+  private DaggerAppComponent(Application applicationParam) {
+    this.application = applicationParam;
+    initialize(applicationParam);
   }
 
   public static AppComponent.Builder builder() {
@@ -78,8 +82,17 @@ public final class DaggerAppComponent implements AppComponent {
         Collections.<String, Provider<AndroidInjector.Factory<?>>>emptyMap());
   }
 
+  private Drawable getDrawable() {
+    return AppModule_ProvideAppDrawableFactory.provideAppDrawable(application);
+  }
+
+  private RequestManager getRequestManager() {
+    return AppModule_ProvideGlideInstanceFactory.provideGlideInstance(
+        application, AppModule_ProvideRequestOptionsFactory.provideRequestOptions());
+  }
+
   @SuppressWarnings("unchecked")
-  private void initialize(final Application application) {
+  private void initialize(final Application applicationParam) {
     this.authActivitySubcomponentFactoryProvider =
         new Provider<
             ActivityBuildersModule_ContributeAuthActivity.AuthActivitySubcomponent.Factory>() {
@@ -153,8 +166,9 @@ public final class DaggerAppComponent implements AppComponent {
           instance, DaggerAppComponent.this.getDispatchingAndroidInjectorOfFragment2());
       DaggerAppCompatActivity_MembersInjector.injectFrameworkFragmentInjector(
           instance, DaggerAppComponent.this.getDispatchingAndroidInjectorOfFragment());
-      AuthActivity_MembersInjector.injectSomeString(
-          instance, ActivityBuildersModule_SomeStringFactory.someString());
+      AuthActivity_MembersInjector.injectLogo(instance, DaggerAppComponent.this.getDrawable());
+      AuthActivity_MembersInjector.injectRequestManager(
+          instance, DaggerAppComponent.this.getRequestManager());
       return instance;
     }
   }
