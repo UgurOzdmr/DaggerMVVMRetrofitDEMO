@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.example.daggermvvmretrofit.BaseApplication;
 
+import javax.inject.Singleton;
+
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjector;
@@ -11,6 +13,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 //Base application is client of AppComponent(service)
 // client-service relationship
 
+@Singleton //Application wide singleton. OWNS THE SINGLETON SCOPE
 @Component (
         modules =  {
                 AndroidSupportInjectionModule.class,
@@ -28,7 +31,6 @@ public interface AppComponent extends AndroidInjector<BaseApplication> {
         Builder application(Application application);
 
         //application will be avaliable for us to use in modules.
-
         AppComponent build();
     }
 }
