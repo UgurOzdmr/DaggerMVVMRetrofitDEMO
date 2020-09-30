@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-22:12
-INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-22:12
-INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-22:12
-INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-22:12
+ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-23:12
 MERGED from [com.google.dagger:dagger-android-support:2.22] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\6a8d25545b7375a8ec42f591b7ab0f36\jetified-dagger-android-support-2.22\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.dagger:dagger-android:2.22] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\b2ce3ce61852c552053c9de7ae09ed4e\jetified-dagger-android-2.22\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\86e1e5d883ec66c1063a0d9a82a27792\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
@@ -19,7 +19,9 @@ MERGED from [androidx.loader:loader:1.0.0] C:\Users\uozdemir\.gradle\caches\tran
 MERGED from [androidx.activity:activity:1.1.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\2d2a73585fe4f95076865d735ed19c29\jetified-activity-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\daf177656a92c215e84d6cc1989ab47b\jetified-lifecycle-viewmodel-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\eaa1cbe2ef40ba62ba3fc8b8fb69519a\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-reactivestreams:2.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\98c90150783fbb11ca69d39bda92c728\lifecycle-reactivestreams-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\ca252fa73e09636044a7852a7fb0d4dc\lifecycle-livedata-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [io.reactivex.rxjava3:rxandroid:3.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\04c0141d93d275b077621010444c4328\jetified-rxandroid-3.0.0\AndroidManifest.xml:15:1-20:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\7c0677be8011741026309ef690a9f4db\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\ee9b51f71825564f346013ea1d4d0318\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\4c1ade53cc4b20d7bc631ac17d3bfca4\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -47,25 +49,29 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\uozdemir\.gradle
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\7bcdab9edca68925f6bcb92ddd8a20de\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\d711f81259436f09ffdf0b48105165e3\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\87e4a5cb4839ebd5d033fa0ae6227780\print-1.0.0\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-22:12
-INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-22:12
-INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-23:12
 	package
 		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:3:5-45
 		INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-22:12
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-23:12
 		INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-22:12
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:1-23:12
 		INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:5:5-83
+	android:name
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:5:5-20:19
+ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:6:5-21:19
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\86e1e5d883ec66c1063a0d9a82a27792\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\86e1e5d883ec66c1063a0d9a82a27792\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\d9fe90b20373e53cda14cf70a3a9d6b6\material-1.0.0\AndroidManifest.xml:22:5-20
@@ -85,33 +91,33 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\uo
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.1] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\ae3468b444d41a56f261ecbb8448fe17\core-1.3.1\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:9:9-41
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:10:9-41
 	android:roundIcon
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:10:9-54
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:11:9-54
 	android:icon
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:8:9-43
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:9:9-43
 	android:allowBackup
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:7:9-35
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:12:9-40
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:13:9-40
 	android:name
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:6:9-40
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:7:9-40
 activity#com.example.daggermvvmretrofit.ui.auth.AuthActivity
-ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:13:9-19:20
+ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:14:9-20:20
 	android:name
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:13:19-55
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:14:19-55
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:14:13-18:29
+ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:15:13-19:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:15:17-69
+ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:16:17-69
 	android:name
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:15:25-66
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:16:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:17:17-77
+ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:18:17-77
 	android:name
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:17:27-74
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:18:27-74
 uses-sdk
 INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml
@@ -146,8 +152,12 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0] C:\Users\u
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\daf177656a92c215e84d6cc1989ab47b\jetified-lifecycle-viewmodel-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\eaa1cbe2ef40ba62ba3fc8b8fb69519a\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\eaa1cbe2ef40ba62ba3fc8b8fb69519a\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-reactivestreams:2.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\98c90150783fbb11ca69d39bda92c728\lifecycle-reactivestreams-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-reactivestreams:2.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\98c90150783fbb11ca69d39bda92c728\lifecycle-reactivestreams-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\ca252fa73e09636044a7852a7fb0d4dc\lifecycle-livedata-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\ca252fa73e09636044a7852a7fb0d4dc\lifecycle-livedata-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [io.reactivex.rxjava3:rxandroid:3.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\04c0141d93d275b077621010444c4328\jetified-rxandroid-3.0.0\AndroidManifest.xml:18:5-43
+MERGED from [io.reactivex.rxjava3:rxandroid:3.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\04c0141d93d275b077621010444c4328\jetified-rxandroid-3.0.0\AndroidManifest.xml:18:5-43
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\7c0677be8011741026309ef690a9f4db\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\7c0677be8011741026309ef690a9f4db\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\ee9b51f71825564f346013ea1d4d0318\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41

@@ -9,6 +9,8 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="30" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.example.daggermvvmretrofit.BaseApplication"
         android:allowBackup="true"
