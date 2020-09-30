@@ -11,6 +11,7 @@ import retrofit2.Retrofit;
 public class AuthModule {
 
     //We can use Retrofit object because its created at SINGLETON scope
+    @AuthScope
     @Provides
     static AuthApi provideAuthApi(Retrofit retrofit) {
         return retrofit.create(AuthApi.class);

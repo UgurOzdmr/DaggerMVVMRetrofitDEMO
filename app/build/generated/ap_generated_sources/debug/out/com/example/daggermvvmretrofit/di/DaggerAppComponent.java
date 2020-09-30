@@ -29,6 +29,7 @@ import com.example.daggermvvmretrofit.ui.auth.AuthViewModel_Factory;
 import com.example.daggermvvmretrofit.ui.main.MainActivity;
 import com.example.daggermvvmretrofit.ui.main.posts.PostsFragment;
 import com.example.daggermvvmretrofit.ui.main.posts.PostsFragment_MembersInjector;
+import com.example.daggermvvmretrofit.ui.main.posts.PostsRecyclerAdapter;
 import com.example.daggermvvmretrofit.ui.main.posts.PostsViewModel;
 import com.example.daggermvvmretrofit.ui.main.posts.PostsViewModel_Factory;
 import com.example.daggermvvmretrofit.ui.main.profile.ProfileFragment;
@@ -237,8 +238,9 @@ public final class DaggerAppComponent implements AppComponent {
     @SuppressWarnings("unchecked")
     private void initialize(final AuthActivity arg0) {
       this.provideAuthApiProvider =
-          AuthModule_ProvideAuthApiFactory.create(
-              DaggerAppComponent.this.provideRetrofitInstanceProvider);
+          DoubleCheck.provider(
+              AuthModule_ProvideAuthApiFactory.create(
+                  DaggerAppComponent.this.provideRetrofitInstanceProvider));
       this.authViewModelProvider =
           AuthViewModel_Factory.create(
               provideAuthApiProvider, DaggerAppComponent.this.sessionManagerProvider);
@@ -285,6 +287,8 @@ public final class DaggerAppComponent implements AppComponent {
         postsFragmentSubcomponentFactoryProvider;
 
     private Provider<MainApi> provideMainApiProvider;
+
+    private Provider<PostsRecyclerAdapter> provideAdapterProvider;
 
     private MainActivitySubcomponentImpl(MainActivity arg0) {
 
@@ -343,8 +347,10 @@ public final class DaggerAppComponent implements AppComponent {
             }
           };
       this.provideMainApiProvider =
-          MainModule_ProvideMainApiFactory.create(
-              DaggerAppComponent.this.provideRetrofitInstanceProvider);
+          DoubleCheck.provider(
+              MainModule_ProvideMainApiFactory.create(
+                  DaggerAppComponent.this.provideRetrofitInstanceProvider));
+      this.provideAdapterProvider = DoubleCheck.provider(MainModule_ProvideAdapterFactory.create());
     }
 
     @Override
@@ -474,7 +480,7 @@ public final class DaggerAppComponent implements AppComponent {
         DaggerFragment_MembersInjector.injectChildFragmentInjector(
             instance, MainActivitySubcomponentImpl.this.getDispatchingAndroidInjectorOfFragment());
         PostsFragment_MembersInjector.injectAdapter(
-            instance, MainModule_ProvideAdapterFactory.provideAdapter());
+            instance, MainActivitySubcomponentImpl.this.provideAdapterProvider.get());
         PostsFragment_MembersInjector.injectProviderFactory(
             instance, getViewModelProviderFactory());
         return instance;
