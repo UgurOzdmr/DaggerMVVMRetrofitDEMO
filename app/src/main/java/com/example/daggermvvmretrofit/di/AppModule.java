@@ -9,11 +9,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.daggermvvmretrofit.R;
+import com.example.daggermvvmretrofit.util.Constants;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 //Application level dependencies, Retrofit, glide , objects exc.
@@ -21,6 +24,16 @@ import dagger.Provides;
 
 @Module
 public class AppModule {
+
+    //Retrofit dependency added
+    @Singleton
+    @Provides
+    static Retrofit provideRetrofitInstance() {
+        return new Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
 
     @Singleton //Same scope as Component annotated with Singleton.
     @Provides

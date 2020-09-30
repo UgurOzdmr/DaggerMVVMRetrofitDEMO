@@ -1,5 +1,6 @@
 package com.example.daggermvvmretrofit.di;
 
+import com.example.daggermvvmretrofit.di.auth.AuthModule;
 import com.example.daggermvvmretrofit.di.auth.AuthViewModelsModule;
 import com.example.daggermvvmretrofit.ui.auth.AuthActivity;
 import dagger.Binds;
@@ -21,7 +22,7 @@ public abstract class ActivityBuildersModule_ContributeAuthActivity {
   abstract AndroidInjector.Factory<?> bindAndroidInjectorFactory(
       AuthActivitySubcomponent.Factory builder);
 
-  @Subcomponent(modules = AuthViewModelsModule.class)
+  @Subcomponent(modules = {AuthViewModelsModule.class, AuthModule.class})
   public interface AuthActivitySubcomponent extends AndroidInjector<AuthActivity> {
     @Subcomponent.Factory
     interface Factory extends AndroidInjector.Factory<AuthActivity> {}

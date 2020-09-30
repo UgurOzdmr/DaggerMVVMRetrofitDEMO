@@ -48,4 +48,6 @@ dependencies {
     api 'com.google.dagger:dagger-android-support:2.22' // if you use the support libraries
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.22'
 
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 }

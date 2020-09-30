@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModel;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.daggermvvmretrofit.BaseApplication;
+import com.example.daggermvvmretrofit.di.auth.AuthModule_ProvideAuthApiFactory;
+import com.example.daggermvvmretrofit.network.auth.AuthApi;
 import com.example.daggermvvmretrofit.ui.auth.AuthActivity;
 import com.example.daggermvvmretrofit.ui.auth.AuthActivity_MembersInjector;
 import com.example.daggermvvmretrofit.ui.auth.AuthViewModel;
@@ -28,10 +30,13 @@ import dagger.internal.Preconditions;
 import java.util.Collections;
 import java.util.Map;
 import javax.inject.Provider;
+import retrofit2.Retrofit;
 
 public final class DaggerAppComponent implements AppComponent {
   private Provider<ActivityBuildersModule_ContributeAuthActivity.AuthActivitySubcomponent.Factory>
       authActivitySubcomponentFactoryProvider;
+
+  private Provider<Retrofit> provideRetrofitInstanceProvider;
 
   private Provider<Application> applicationProvider;
 
@@ -106,6 +111,8 @@ public final class DaggerAppComponent implements AppComponent {
             return new AuthActivitySubcomponentFactory();
           }
         };
+    this.provideRetrofitInstanceProvider =
+        DoubleCheck.provider(AppModule_ProvideRetrofitInstanceFactory.create());
     this.applicationProvider = InstanceFactory.create(applicationParam);
     this.provideAppDrawableProvider =
         DoubleCheck.provider(AppModule_ProvideAppDrawableFactory.create(applicationProvider));
@@ -167,16 +174,31 @@ public final class DaggerAppComponent implements AppComponent {
 
   private final class AuthActivitySubcomponentImpl
       implements ActivityBuildersModule_ContributeAuthActivity.AuthActivitySubcomponent {
-    private AuthActivitySubcomponentImpl(AuthActivity arg0) {}
+    private Provider<AuthApi> provideAuthApiProvider;
+
+    private Provider<AuthViewModel> authViewModelProvider;
+
+    private AuthActivitySubcomponentImpl(AuthActivity arg0) {
+
+      initialize(arg0);
+    }
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>>
         getMapOfClassOfAndProviderOfViewModel() {
       return Collections.<Class<? extends ViewModel>, Provider<ViewModel>>singletonMap(
-          AuthViewModel.class, (Provider) AuthViewModel_Factory.create());
+          AuthViewModel.class, (Provider) authViewModelProvider);
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
       return new ViewModelProviderFactory(getMapOfClassOfAndProviderOfViewModel());
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initialize(final AuthActivity arg0) {
+      this.provideAuthApiProvider =
+          AuthModule_ProvideAuthApiFactory.create(
+              DaggerAppComponent.this.provideRetrofitInstanceProvider);
+      this.authViewModelProvider = AuthViewModel_Factory.create(provideAuthApiProvider);
     }
 
     @Override
