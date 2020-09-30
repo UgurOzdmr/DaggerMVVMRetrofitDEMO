@@ -90,10 +90,10 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\uo
 		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:12:9-40
 	android:name
 		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:6:9-40
-activity#com.example.daggermvvmretrofit.AuthActivity
+activity#com.example.daggermvvmretrofit.ui.auth.AuthActivity
 ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:13:9-19:20
 	android:name
-		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:13:19-47
+		ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:13:19-55
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:14:13-18:29
 action#android.intent.action.MAIN
