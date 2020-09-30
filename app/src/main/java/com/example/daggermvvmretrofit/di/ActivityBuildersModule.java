@@ -2,6 +2,9 @@ package com.example.daggermvvmretrofit.di;
 
 import com.example.daggermvvmretrofit.di.auth.AuthModule;
 import com.example.daggermvvmretrofit.di.auth.AuthViewModelsModule;
+import com.example.daggermvvmretrofit.di.main.MainFragmentBuildersModule;
+import com.example.daggermvvmretrofit.di.main.MainModule;
+import com.example.daggermvvmretrofit.di.main.MainViewModelsModule;
 import com.example.daggermvvmretrofit.ui.auth.AuthActivity;
 import com.example.daggermvvmretrofit.ui.main.MainActivity;
 
@@ -17,6 +20,10 @@ public abstract class ActivityBuildersModule {
     )
     abstract AuthActivity contributeAuthActivity();
 
-    @ContributesAndroidInjector()
+    @ContributesAndroidInjector(
+            modules = {MainFragmentBuildersModule.class ,
+                       MainViewModelsModule.class,
+                    MainModule.class}
+    )
     abstract MainActivity contributeMainActivity();
 }

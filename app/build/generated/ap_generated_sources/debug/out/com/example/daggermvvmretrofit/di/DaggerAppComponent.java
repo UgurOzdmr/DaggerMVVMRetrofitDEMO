@@ -16,18 +16,32 @@ import com.example.daggermvvmretrofit.BaseApplication;
 import com.example.daggermvvmretrofit.SessionManager;
 import com.example.daggermvvmretrofit.SessionManager_Factory;
 import com.example.daggermvvmretrofit.di.auth.AuthModule_ProvideAuthApiFactory;
+import com.example.daggermvvmretrofit.di.main.MainFragmentBuildersModule_ContributePostFragment;
+import com.example.daggermvvmretrofit.di.main.MainFragmentBuildersModule_ContributeProfileFragment;
+import com.example.daggermvvmretrofit.di.main.MainModule_ProvideAdapterFactory;
+import com.example.daggermvvmretrofit.di.main.MainModule_ProvideMainApiFactory;
 import com.example.daggermvvmretrofit.network.auth.AuthApi;
+import com.example.daggermvvmretrofit.network.main.MainApi;
 import com.example.daggermvvmretrofit.ui.auth.AuthActivity;
 import com.example.daggermvvmretrofit.ui.auth.AuthActivity_MembersInjector;
 import com.example.daggermvvmretrofit.ui.auth.AuthViewModel;
 import com.example.daggermvvmretrofit.ui.auth.AuthViewModel_Factory;
 import com.example.daggermvvmretrofit.ui.main.MainActivity;
+import com.example.daggermvvmretrofit.ui.main.posts.PostsFragment;
+import com.example.daggermvvmretrofit.ui.main.posts.PostsFragment_MembersInjector;
+import com.example.daggermvvmretrofit.ui.main.posts.PostsViewModel;
+import com.example.daggermvvmretrofit.ui.main.posts.PostsViewModel_Factory;
+import com.example.daggermvvmretrofit.ui.main.profile.ProfileFragment;
+import com.example.daggermvvmretrofit.ui.main.profile.ProfileFragment_MembersInjector;
+import com.example.daggermvvmretrofit.ui.main.profile.ProfileViewModel;
+import com.example.daggermvvmretrofit.ui.main.profile.ProfileViewModel_Factory;
 import com.example.daggermvvmretrofit.viewmodels.ViewModelProviderFactory;
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication_MembersInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.DispatchingAndroidInjector_Factory;
 import dagger.android.support.DaggerAppCompatActivity_MembersInjector;
+import dagger.android.support.DaggerFragment_MembersInjector;
 import dagger.internal.DoubleCheck;
 import dagger.internal.InstanceFactory;
 import dagger.internal.MapBuilder;
@@ -261,7 +275,77 @@ public final class DaggerAppComponent implements AppComponent {
 
   private final class MainActivitySubcomponentImpl
       implements ActivityBuildersModule_ContributeMainActivity.MainActivitySubcomponent {
-    private MainActivitySubcomponentImpl(MainActivity arg0) {}
+    private Provider<
+            MainFragmentBuildersModule_ContributeProfileFragment.ProfileFragmentSubcomponent
+                .Factory>
+        profileFragmentSubcomponentFactoryProvider;
+
+    private Provider<
+            MainFragmentBuildersModule_ContributePostFragment.PostsFragmentSubcomponent.Factory>
+        postsFragmentSubcomponentFactoryProvider;
+
+    private Provider<MainApi> provideMainApiProvider;
+
+    private MainActivitySubcomponentImpl(MainActivity arg0) {
+
+      initialize(arg0);
+    }
+
+    private Map<Class<?>, Provider<AndroidInjector.Factory<?>>>
+        getMapOfClassOfAndProviderOfAndroidInjectorFactoryOf() {
+      return MapBuilder.<Class<?>, Provider<AndroidInjector.Factory<?>>>newMapBuilder(4)
+          .put(
+              AuthActivity.class,
+              (Provider) DaggerAppComponent.this.authActivitySubcomponentFactoryProvider)
+          .put(
+              MainActivity.class,
+              (Provider) DaggerAppComponent.this.mainActivitySubcomponentFactoryProvider)
+          .put(ProfileFragment.class, (Provider) profileFragmentSubcomponentFactoryProvider)
+          .put(PostsFragment.class, (Provider) postsFragmentSubcomponentFactoryProvider)
+          .build();
+    }
+
+    private DispatchingAndroidInjector<androidx.fragment.app.Fragment>
+        getDispatchingAndroidInjectorOfFragment() {
+      return DispatchingAndroidInjector_Factory.newInstance(
+          getMapOfClassOfAndProviderOfAndroidInjectorFactoryOf(),
+          Collections.<String, Provider<AndroidInjector.Factory<?>>>emptyMap());
+    }
+
+    private DispatchingAndroidInjector<Fragment> getDispatchingAndroidInjectorOfFragment2() {
+      return DispatchingAndroidInjector_Factory.newInstance(
+          getMapOfClassOfAndProviderOfAndroidInjectorFactoryOf(),
+          Collections.<String, Provider<AndroidInjector.Factory<?>>>emptyMap());
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initialize(final MainActivity arg0) {
+      this.profileFragmentSubcomponentFactoryProvider =
+          new Provider<
+              MainFragmentBuildersModule_ContributeProfileFragment.ProfileFragmentSubcomponent
+                  .Factory>() {
+            @Override
+            public MainFragmentBuildersModule_ContributeProfileFragment.ProfileFragmentSubcomponent
+                    .Factory
+                get() {
+              return new ProfileFragmentSubcomponentFactory();
+            }
+          };
+      this.postsFragmentSubcomponentFactoryProvider =
+          new Provider<
+              MainFragmentBuildersModule_ContributePostFragment.PostsFragmentSubcomponent
+                  .Factory>() {
+            @Override
+            public MainFragmentBuildersModule_ContributePostFragment.PostsFragmentSubcomponent
+                    .Factory
+                get() {
+              return new PostsFragmentSubcomponentFactory();
+            }
+          };
+      this.provideMainApiProvider =
+          MainModule_ProvideMainApiFactory.create(
+              DaggerAppComponent.this.provideRetrofitInstanceProvider);
+    }
 
     @Override
     public void inject(MainActivity arg0) {
@@ -270,12 +354,131 @@ public final class DaggerAppComponent implements AppComponent {
 
     private MainActivity injectMainActivity(MainActivity instance) {
       DaggerAppCompatActivity_MembersInjector.injectSupportFragmentInjector(
-          instance, DaggerAppComponent.this.getDispatchingAndroidInjectorOfFragment2());
+          instance, getDispatchingAndroidInjectorOfFragment());
       DaggerAppCompatActivity_MembersInjector.injectFrameworkFragmentInjector(
-          instance, DaggerAppComponent.this.getDispatchingAndroidInjectorOfFragment());
+          instance, getDispatchingAndroidInjectorOfFragment2());
       BaseActivity_MembersInjector.injectSessionManager(
           instance, DaggerAppComponent.this.sessionManagerProvider.get());
       return instance;
+    }
+
+    private final class ProfileFragmentSubcomponentFactory
+        implements MainFragmentBuildersModule_ContributeProfileFragment.ProfileFragmentSubcomponent
+            .Factory {
+      @Override
+      public MainFragmentBuildersModule_ContributeProfileFragment.ProfileFragmentSubcomponent
+          create(ProfileFragment arg0) {
+        Preconditions.checkNotNull(arg0);
+        return new ProfileFragmentSubcomponentImpl(arg0);
+      }
+    }
+
+    private final class ProfileFragmentSubcomponentImpl
+        implements MainFragmentBuildersModule_ContributeProfileFragment
+            .ProfileFragmentSubcomponent {
+      private Provider<ProfileViewModel> profileViewModelProvider;
+
+      private Provider<PostsViewModel> postsViewModelProvider;
+
+      private ProfileFragmentSubcomponentImpl(ProfileFragment arg0) {
+
+        initialize(arg0);
+      }
+
+      private Map<Class<? extends ViewModel>, Provider<ViewModel>>
+          getMapOfClassOfAndProviderOfViewModel() {
+        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2)
+            .put(ProfileViewModel.class, (Provider) profileViewModelProvider)
+            .put(PostsViewModel.class, (Provider) postsViewModelProvider)
+            .build();
+      }
+
+      private ViewModelProviderFactory getViewModelProviderFactory() {
+        return new ViewModelProviderFactory(getMapOfClassOfAndProviderOfViewModel());
+      }
+
+      @SuppressWarnings("unchecked")
+      private void initialize(final ProfileFragment arg0) {
+        this.profileViewModelProvider =
+            ProfileViewModel_Factory.create(DaggerAppComponent.this.sessionManagerProvider);
+        this.postsViewModelProvider =
+            PostsViewModel_Factory.create(
+                DaggerAppComponent.this.sessionManagerProvider,
+                MainActivitySubcomponentImpl.this.provideMainApiProvider);
+      }
+
+      @Override
+      public void inject(ProfileFragment arg0) {
+        injectProfileFragment(arg0);
+      }
+
+      private ProfileFragment injectProfileFragment(ProfileFragment instance) {
+        DaggerFragment_MembersInjector.injectChildFragmentInjector(
+            instance, MainActivitySubcomponentImpl.this.getDispatchingAndroidInjectorOfFragment());
+        ProfileFragment_MembersInjector.injectProviderFactory(
+            instance, getViewModelProviderFactory());
+        return instance;
+      }
+    }
+
+    private final class PostsFragmentSubcomponentFactory
+        implements MainFragmentBuildersModule_ContributePostFragment.PostsFragmentSubcomponent
+            .Factory {
+      @Override
+      public MainFragmentBuildersModule_ContributePostFragment.PostsFragmentSubcomponent create(
+          PostsFragment arg0) {
+        Preconditions.checkNotNull(arg0);
+        return new PostsFragmentSubcomponentImpl(arg0);
+      }
+    }
+
+    private final class PostsFragmentSubcomponentImpl
+        implements MainFragmentBuildersModule_ContributePostFragment.PostsFragmentSubcomponent {
+      private Provider<ProfileViewModel> profileViewModelProvider;
+
+      private Provider<PostsViewModel> postsViewModelProvider;
+
+      private PostsFragmentSubcomponentImpl(PostsFragment arg0) {
+
+        initialize(arg0);
+      }
+
+      private Map<Class<? extends ViewModel>, Provider<ViewModel>>
+          getMapOfClassOfAndProviderOfViewModel() {
+        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2)
+            .put(ProfileViewModel.class, (Provider) profileViewModelProvider)
+            .put(PostsViewModel.class, (Provider) postsViewModelProvider)
+            .build();
+      }
+
+      private ViewModelProviderFactory getViewModelProviderFactory() {
+        return new ViewModelProviderFactory(getMapOfClassOfAndProviderOfViewModel());
+      }
+
+      @SuppressWarnings("unchecked")
+      private void initialize(final PostsFragment arg0) {
+        this.profileViewModelProvider =
+            ProfileViewModel_Factory.create(DaggerAppComponent.this.sessionManagerProvider);
+        this.postsViewModelProvider =
+            PostsViewModel_Factory.create(
+                DaggerAppComponent.this.sessionManagerProvider,
+                MainActivitySubcomponentImpl.this.provideMainApiProvider);
+      }
+
+      @Override
+      public void inject(PostsFragment arg0) {
+        injectPostsFragment(arg0);
+      }
+
+      private PostsFragment injectPostsFragment(PostsFragment instance) {
+        DaggerFragment_MembersInjector.injectChildFragmentInjector(
+            instance, MainActivitySubcomponentImpl.this.getDispatchingAndroidInjectorOfFragment());
+        PostsFragment_MembersInjector.injectAdapter(
+            instance, MainModule_ProvideAdapterFactory.provideAdapter());
+        PostsFragment_MembersInjector.injectProviderFactory(
+            instance, getViewModelProviderFactory());
+        return instance;
+      }
     }
   }
 }
