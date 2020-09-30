@@ -3,6 +3,7 @@ package com.example.daggermvvmretrofit.di;
 import android.app.Application;
 
 import com.example.daggermvvmretrofit.BaseApplication;
+import com.example.daggermvvmretrofit.SessionManager;
 
 import javax.inject.Singleton;
 
@@ -20,10 +21,11 @@ import dagger.android.support.AndroidSupportInjectionModule;
                 ActivityBuildersModule.class,
                 AppModule.class,
                 ViewModelFactoryModule.class,
-
         }
 )
 public interface AppComponent extends AndroidInjector<BaseApplication> {
+
+    SessionManager sessionManager();
 
     @Component.Builder
     interface Builder {

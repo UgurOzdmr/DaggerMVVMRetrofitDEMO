@@ -11,13 +11,17 @@ import android.graphics.drawable.Drawable;
 import androidx.lifecycle.ViewModel;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.daggermvvmretrofit.BaseActivity_MembersInjector;
 import com.example.daggermvvmretrofit.BaseApplication;
+import com.example.daggermvvmretrofit.SessionManager;
+import com.example.daggermvvmretrofit.SessionManager_Factory;
 import com.example.daggermvvmretrofit.di.auth.AuthModule_ProvideAuthApiFactory;
 import com.example.daggermvvmretrofit.network.auth.AuthApi;
 import com.example.daggermvvmretrofit.ui.auth.AuthActivity;
 import com.example.daggermvvmretrofit.ui.auth.AuthActivity_MembersInjector;
 import com.example.daggermvvmretrofit.ui.auth.AuthViewModel;
 import com.example.daggermvvmretrofit.ui.auth.AuthViewModel_Factory;
+import com.example.daggermvvmretrofit.ui.main.MainActivity;
 import com.example.daggermvvmretrofit.viewmodels.ViewModelProviderFactory;
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication_MembersInjector;
@@ -26,6 +30,7 @@ import dagger.android.DispatchingAndroidInjector_Factory;
 import dagger.android.support.DaggerAppCompatActivity_MembersInjector;
 import dagger.internal.DoubleCheck;
 import dagger.internal.InstanceFactory;
+import dagger.internal.MapBuilder;
 import dagger.internal.Preconditions;
 import java.util.Collections;
 import java.util.Map;
@@ -35,6 +40,11 @@ import retrofit2.Retrofit;
 public final class DaggerAppComponent implements AppComponent {
   private Provider<ActivityBuildersModule_ContributeAuthActivity.AuthActivitySubcomponent.Factory>
       authActivitySubcomponentFactoryProvider;
+
+  private Provider<ActivityBuildersModule_ContributeMainActivity.MainActivitySubcomponent.Factory>
+      mainActivitySubcomponentFactoryProvider;
+
+  private Provider<SessionManager> sessionManagerProvider;
 
   private Provider<Retrofit> provideRetrofitInstanceProvider;
 
@@ -57,8 +67,10 @@ public final class DaggerAppComponent implements AppComponent {
 
   private Map<Class<?>, Provider<AndroidInjector.Factory<?>>>
       getMapOfClassOfAndProviderOfAndroidInjectorFactoryOf() {
-    return Collections.<Class<?>, Provider<AndroidInjector.Factory<?>>>singletonMap(
-        AuthActivity.class, (Provider) authActivitySubcomponentFactoryProvider);
+    return MapBuilder.<Class<?>, Provider<AndroidInjector.Factory<?>>>newMapBuilder(2)
+        .put(AuthActivity.class, (Provider) authActivitySubcomponentFactoryProvider)
+        .put(MainActivity.class, (Provider) mainActivitySubcomponentFactoryProvider)
+        .build();
   }
 
   private DispatchingAndroidInjector<Activity> getDispatchingAndroidInjectorOfActivity() {
@@ -111,6 +123,16 @@ public final class DaggerAppComponent implements AppComponent {
             return new AuthActivitySubcomponentFactory();
           }
         };
+    this.mainActivitySubcomponentFactoryProvider =
+        new Provider<
+            ActivityBuildersModule_ContributeMainActivity.MainActivitySubcomponent.Factory>() {
+          @Override
+          public ActivityBuildersModule_ContributeMainActivity.MainActivitySubcomponent.Factory
+              get() {
+            return new MainActivitySubcomponentFactory();
+          }
+        };
+    this.sessionManagerProvider = DoubleCheck.provider(SessionManager_Factory.create());
     this.provideRetrofitInstanceProvider =
         DoubleCheck.provider(AppModule_ProvideRetrofitInstanceFactory.create());
     this.applicationProvider = InstanceFactory.create(applicationParam);
@@ -127,6 +149,11 @@ public final class DaggerAppComponent implements AppComponent {
   @Override
   public void inject(BaseApplication arg0) {
     injectBaseApplication(arg0);
+  }
+
+  @Override
+  public SessionManager sessionManager() {
+    return sessionManagerProvider.get();
   }
 
   private BaseApplication injectBaseApplication(BaseApplication instance) {
@@ -198,7 +225,9 @@ public final class DaggerAppComponent implements AppComponent {
       this.provideAuthApiProvider =
           AuthModule_ProvideAuthApiFactory.create(
               DaggerAppComponent.this.provideRetrofitInstanceProvider);
-      this.authViewModelProvider = AuthViewModel_Factory.create(provideAuthApiProvider);
+      this.authViewModelProvider =
+          AuthViewModel_Factory.create(
+              provideAuthApiProvider, DaggerAppComponent.this.sessionManagerProvider);
     }
 
     @Override
@@ -216,6 +245,36 @@ public final class DaggerAppComponent implements AppComponent {
           instance, DaggerAppComponent.this.provideAppDrawableProvider.get());
       AuthActivity_MembersInjector.injectRequestManager(
           instance, DaggerAppComponent.this.provideGlideInstanceProvider.get());
+      return instance;
+    }
+  }
+
+  private final class MainActivitySubcomponentFactory
+      implements ActivityBuildersModule_ContributeMainActivity.MainActivitySubcomponent.Factory {
+    @Override
+    public ActivityBuildersModule_ContributeMainActivity.MainActivitySubcomponent create(
+        MainActivity arg0) {
+      Preconditions.checkNotNull(arg0);
+      return new MainActivitySubcomponentImpl(arg0);
+    }
+  }
+
+  private final class MainActivitySubcomponentImpl
+      implements ActivityBuildersModule_ContributeMainActivity.MainActivitySubcomponent {
+    private MainActivitySubcomponentImpl(MainActivity arg0) {}
+
+    @Override
+    public void inject(MainActivity arg0) {
+      injectMainActivity(arg0);
+    }
+
+    private MainActivity injectMainActivity(MainActivity instance) {
+      DaggerAppCompatActivity_MembersInjector.injectSupportFragmentInjector(
+          instance, DaggerAppComponent.this.getDispatchingAndroidInjectorOfFragment2());
+      DaggerAppCompatActivity_MembersInjector.injectFrameworkFragmentInjector(
+          instance, DaggerAppComponent.this.getDispatchingAndroidInjectorOfFragment());
+      BaseActivity_MembersInjector.injectSessionManager(
+          instance, DaggerAppComponent.this.sessionManagerProvider.get());
       return instance;
     }
   }

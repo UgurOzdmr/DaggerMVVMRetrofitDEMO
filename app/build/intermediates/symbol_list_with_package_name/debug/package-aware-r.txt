@@ -1376,6 +1376,7 @@ id listMode
 id list_item
 id login_button
 id login_logo
+id logout
 id masked
 id message
 id middle
@@ -1568,6 +1569,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_auth
+layout acvitiy_main
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1595,6 +1597,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu main_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 string abc_action_bar_home_description
@@ -1632,6 +1635,7 @@ string character_counter_pattern
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hide_bottom_view_on_scroll_behavior
+string logout
 string mtrl_chip_close_icon_content_description
 string password_toggle_content_description
 string path_password_eye

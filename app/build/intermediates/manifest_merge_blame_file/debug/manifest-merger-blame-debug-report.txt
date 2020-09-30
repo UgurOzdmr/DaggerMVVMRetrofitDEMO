@@ -15,7 +15,7 @@
 11-->C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:5:22-64
 12
 13    <application
-13-->C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:6:5-21:19
+13-->C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:6:5-22:19
 14        android:name="com.example.daggermvvmretrofit.BaseApplication"
 14-->C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:7:9-40
 15        android:allowBackup="true"
@@ -49,17 +49,20 @@
 29-->C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:18:27-74
 30            </intent-filter>
 31        </activity>
-32
-33        <provider
-33-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
-34            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-34-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
-35            android:authorities="com.example.daggermvvmretrofit.lifecycle-process"
-35-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
-36            android:exported="false"
-36-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
-37            android:multiprocess="true" />
-37-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
-38    </application>
-39
-40</manifest>
+32        <activity android:name="com.example.daggermvvmretrofit.ui.main.MainActivity" />
+32-->C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:21:9-58
+32-->C:\Users\uozdemir\AndroidStudioProjects\DaggerMVVMRetrofit\app\src\main\AndroidManifest.xml:21:19-55
+33
+34        <provider
+34-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+35            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+35-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+36            android:authorities="com.example.daggermvvmretrofit.lifecycle-process"
+36-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+37            android:exported="false"
+37-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+38            android:multiprocess="true" />
+38-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\uozdemir\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+39    </application>
+40
+41</manifest>
