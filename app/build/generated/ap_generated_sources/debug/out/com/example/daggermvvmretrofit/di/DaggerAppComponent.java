@@ -8,11 +8,15 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ContentProvider;
 import android.graphics.drawable.Drawable;
+import androidx.lifecycle.ViewModel;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.daggermvvmretrofit.BaseApplication;
 import com.example.daggermvvmretrofit.ui.auth.AuthActivity;
 import com.example.daggermvvmretrofit.ui.auth.AuthActivity_MembersInjector;
+import com.example.daggermvvmretrofit.ui.auth.AuthViewModel;
+import com.example.daggermvvmretrofit.ui.auth.AuthViewModel_Factory;
+import com.example.daggermvvmretrofit.viewmodels.ViewModelProviderFactory;
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication_MembersInjector;
 import dagger.android.DispatchingAndroidInjector;
@@ -165,6 +169,16 @@ public final class DaggerAppComponent implements AppComponent {
       implements ActivityBuildersModule_ContributeAuthActivity.AuthActivitySubcomponent {
     private AuthActivitySubcomponentImpl(AuthActivity arg0) {}
 
+    private Map<Class<? extends ViewModel>, Provider<ViewModel>>
+        getMapOfClassOfAndProviderOfViewModel() {
+      return Collections.<Class<? extends ViewModel>, Provider<ViewModel>>singletonMap(
+          AuthViewModel.class, (Provider) AuthViewModel_Factory.create());
+    }
+
+    private ViewModelProviderFactory getViewModelProviderFactory() {
+      return new ViewModelProviderFactory(getMapOfClassOfAndProviderOfViewModel());
+    }
+
     @Override
     public void inject(AuthActivity arg0) {
       injectAuthActivity(arg0);
@@ -175,6 +189,7 @@ public final class DaggerAppComponent implements AppComponent {
           instance, DaggerAppComponent.this.getDispatchingAndroidInjectorOfFragment2());
       DaggerAppCompatActivity_MembersInjector.injectFrameworkFragmentInjector(
           instance, DaggerAppComponent.this.getDispatchingAndroidInjectorOfFragment());
+      AuthActivity_MembersInjector.injectProviderFactory(instance, getViewModelProviderFactory());
       AuthActivity_MembersInjector.injectLogo(
           instance, DaggerAppComponent.this.provideAppDrawableProvider.get());
       AuthActivity_MembersInjector.injectRequestManager(

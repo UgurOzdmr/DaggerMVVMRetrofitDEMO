@@ -1,6 +1,7 @@
 package com.example.daggermvvmretrofit.ui.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -19,6 +20,10 @@ public class AuthActivity extends DaggerAppCompatActivity {
 
     private static final String TAG = "AuthActivity";
 
+    private AuthViewModel viewModel;
+
+    @Inject
+    ViewModelProviderFactory providerFactory;
 
     @Inject
     Drawable logo;
@@ -30,6 +35,8 @@ public class AuthActivity extends DaggerAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
+
+        viewModel = ViewModelProviders.of(this, providerFactory).get(AuthViewModel.class);
 
         setLogo();
 

@@ -1,4 +1,4 @@
-#Wed Sep 30 10:15:53 EET 2020
+#Wed Sep 30 10:33:41 EET 2020
 base.0=C\:\\Users\\uozdemir\\AndroidStudioProjects\\DaggerMVVMRetrofit\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
